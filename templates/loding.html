@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+
+
+    <title>T.I..L...👩🏻‍💻</title>
+
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        * {
+            font-family: 'Do Hyeon', sans-serif;
+        }
+
+        .comment {
+            color: blue;
+            font-weight: bold;
+        }
+
+        #post-box {
+            width: 500px;
+            margin: 20px auto;
+            padding: 50px;
+            border: black solid;
+            border-radius: 5px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("#cards-box").html("");
+            showArticles();
+        });
+
+        function openClose() {
+            // id 값 post-box의 display 값이 block 이면(= 눈에 보이면)
+            if ($("#post-box").css("display") == "block") {
+                // post-box를 가리고
+                $("#post-box").hide();
+                // 다시 버튼을 클릭하면, 박스 열기를 할 수 있게 텍스트 바꿔두기
+                $("#btn-post-box").text("포스팅 박스 열기");
+            } else {
+                // 아니면(눈에 보이지 않으면) post-box를 펴라
+                $("#post-box").show();
+                // 다시 버튼을 클릭하면, 박스 닫기를 할 수 있게 텍스트 바꿔두기
+                $("#btn-post-box").text("포스팅 박스 닫기");
+            }
+        }
+
+    </script>
+</head>
+
+
+<body>
+<div class="center">
+    <div class="jumbotron">
+        <h1 class="display-4">오늘 내가 배운 것은 !</h1>
+        <p class="lead">오늘 배운 것을 까먹지 않고 기록해보자 !</p>
+        <hr class="my-4">
+        <p class="lead">
+            <button onclick="openClose()" id="btn-login-box" type="button" class="btn btn-primary"> 로그인
+            </button>
+
+            <button onclick="openClose()" id="btn-search-box" type="button" class="btn btn-primary"> 검색창
+            </button>
+
+            <button onclick="openClose()" id="btn-post-box" type="button" class="btn btn-primary"> 포스팅
+            </button>
+        </p>
+    </div>
+
+    <div id="post-box" class="form-post" style="display:none">
+        <div>
+            <div class="form-group">
+                <label for="post-url">날짜 입력</label>
+                <p>ex) 20211030 </p>
+                <input id="post-url" class="form-control" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for="post-comment">간단 코멘트</label>
+                <textarea id="post-comment" class="form-control" rows="2"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="postArticle()">기사저장</button>
+        </div>
+    </div>
+</body>
+</html>
